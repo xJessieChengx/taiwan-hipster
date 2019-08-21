@@ -4,6 +4,20 @@ from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
 
+from engine.currencySearch import currencySearch
+from engine.AQI import AQImonitor
+from engine.gamma import gammamonitor
+from engine.OWM import OWMLonLatsearch
+from engine.SpotifyScrap import scrapSpotify
+from engine.bookingSystem import booking
+from engine.movie import getMoviePoster
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+
+
+
+
 app = Flask(__name__)
 
 # 設定你的Channel Access Token
@@ -29,9 +43,13 @@ def callback():
 #處理訊息
 #當訊息種類為TextMessage時，從event中取出訊息內容，藉由TextSendMessage()包裝成符合格式的物件，並貼上message的標籤方便之後取用。
 #接著透過LineBotApi物件中reply_message()方法，回傳相同的訊息內容
-@handler.add(MessageEvent, message=TextMessage)
+
+
+#回覆貼圖訊息
+@handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
-    message = TextSendMessage(text='Hi')
+    print('執行StickerMessage')
+    message = TextSendMessage(text='嗚嗚~我看不懂貼圖')
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
