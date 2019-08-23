@@ -6,7 +6,8 @@ def OWMLonLatsearch(lon,lat):
 	輸入英文城市名
 	以字串型別輸出特定城市天氣資訊
 	'''
-	URL = 'https://api.openweathermap.org/data/2.5/weather?APPID=9c96901640cdfc869ba1f169d032598b&lon={}&lat={}&units=metric&lang=zh_tw'.format(lon,lat)
+	#API Key : a274b3d7c58b734d9908173d170ceda5
+	URL = 'https://api.openweathermap.org/data/2.5/weather?APPID=a274b3d7c58b734d9908173d170ceda5&lon={}&lat={}&units=metric&lang=zh_tw'.format(lon,lat)
 	try:
 		r = requests.get(URL).json()
 		result = ''
