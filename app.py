@@ -14,6 +14,8 @@ from engine.movie import getMoviePoster
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+scope=['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('Okinawa.json',scope)
 
 app = Flask(__name__)
 
@@ -37,9 +39,23 @@ def callback():
         abort(400)
     return 'OK'
 
+@app.route("/web")
+def showWeb():
+    return '<h1>Hello Every one</h1>'
+
 #處理訊息
 #當訊息種類為TextMessage時，從event中取出訊息內容，藉由TextSendMessage()包裝成符合格式的物件，並貼上message的標籤方便之後取用。
 #接著透過LineBotApi物件中reply_message()方法，回傳相同的訊息內容
+
+#使用者
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    word = event.message.text
+    if word == '你好':
+        message = TextSendMessage(text='Hello')
+    else:
+        message = TextSendMessage(text='看不懂')
+    line_bot_api.reply_message(event.reply_token, message)
 
 #回覆貼圖訊息
 @handler.add(MessageEvent, message=StickerMessage)
@@ -47,6 +63,12 @@ def handle_message(event):
     print('執行StickerMessage')
     message = TextSendMessage(text='嗚嗚~我看不懂貼圖')
     line_bot_api.reply_message(event.reply_token, message)
+
+#使用者註冊
+
+#展覽資訊回覆
+
+
 
 import os
 if __name__ == "__main__":

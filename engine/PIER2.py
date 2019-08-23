@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import os
 import time
 
+#整理檔案名稱(展覽名稱)，去除其他特殊符號
 def clearName(name):
 	newName = ''
 	for i in name:
@@ -30,17 +31,14 @@ soup = BeautifulSoup(webContent.content, 'html.parser')
 
 for exhibition in soup.select('.n_box'):
 	Name = exhibition.select('.pic img')[0]['alt']
-	#Name = exhibition['alt'].split(']')[1]
-	#Name = NameTemp.split(']')[1]
 	Date = exhibition.select('.txt')[0].text
-
 	imgLink = exhibition.select('.pic img')[0]['src']
 	LinkTemp = exhibition['onclick'].split('=\'')[1]
 	Link = LinkTemp[:len(LinkTemp)-1]
 
 	print('展覽名稱：{}'.format(Date))
 	print('展覽圖片：https://pier-2.khcc.gov.tw{}'.format(imgLink))
-	download(imgLink,Name)
+	#download(imgLink,Name)
 	print('展覽連結：https://pier-2.khcc.gov.tw/{}'.format(Link))
 	print('------------------------')
 

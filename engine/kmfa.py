@@ -34,7 +34,7 @@ for exhibition in soup.select('.exhibition_list .exhibition_item'):
 	print('展覽名稱：{}'.format(Name))
 	print('展覽日期：{}'.format(Date))
 	print('展覽圖片：https://www.kmfa.gov.tw/{}'.format(ImgLink))
-	download(ImgLink,Name)
+	#download(ImgLink,Name)
 	print('展覽連結：https://www.kmfa.gov.tw{}'.format(Link))
 	print('------------------------')
 
