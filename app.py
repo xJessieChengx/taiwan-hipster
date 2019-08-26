@@ -87,7 +87,15 @@ def handle_message(event):
         #天氣查詢
         elif userSend == '天氣':
             userStatusSheet.update_cell(userRow, 2, '天氣查詢')
-            message = TextSendMessage(text='請傳送你的座標',uri='line://nv/location')
+            #message = TextSendMessage(text='請傳送你的座標')
+                message = TemplateSendMessage(
+                actions=[
+                    URIAction(
+                        label='傳送我的地點',
+                        uri='line://nv/location'
+                    )
+                ]
+            )
 
         #幣值查詢
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
