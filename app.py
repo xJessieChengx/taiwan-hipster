@@ -176,8 +176,8 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_message(event):
-    userSend = event.message.text
-    userID = event.source.user_id
+	userSend = event.message.text
+	userID = event.source.user_id
 	try:
 		cell = userStatusSheet.find(userID)
 		userRow = cell.row
