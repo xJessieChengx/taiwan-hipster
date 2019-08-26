@@ -121,7 +121,7 @@ def handle_message(event):
                     title='藝文特區',
                     text='請選擇地點',
                     actions=[
-                        URIAction(
+                        MessageAction(
                             label='高雄市立美術館',
                             text='高雄市立美術館'
                             #uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
