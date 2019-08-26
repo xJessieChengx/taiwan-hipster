@@ -73,7 +73,7 @@ def handle_message(event):
         userCol = cell.col
         status = ''
     if status == '':
-        message = TextSendMessage(text='請輸入尊姓大名, 讓我認識你!')
+        message = TextSendMessage(text='請輸入姓名, 讓我認識你!')
         userStatusSheet.update_cell(userRow, 2, '註冊中')
     elif status == '註冊中':
         userInfoSheet.update_cell(userRow, 2, userSend)
@@ -111,42 +111,42 @@ def handle_message(event):
                                 uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
                             )
             
-            #高美館
-            elif userSend == '高美館':
-                message = TemplateSendMessage(
-                    alt_text='這是一個按鈕選單',
-                    template=ButtonsTemplate(
-                        thumbnail_image_url='http://www.kaho.tw/images/pic1.jpg',
-                        title='高雄市立美術館',
-                        text='請選擇動作',
-                        actions=[
-                            URIAction(
-                                label='展覽資訊',
-                                uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
-                            ),
-                            URIAction(
-                                label='兒童美術館',
-                                uri='https://www.kmfa.gov.tw/Visit/navigation/navigation02.htm'
-                            ),
-                            URIAction(
-                                label='美術館VR環景',
-                                uri='https://roundme.com/tour/11129/view/27357/'
-                            )
-                        ]
-                    )
+        #高美館
+        elif userSend == '高美館':
+            message = TemplateSendMessage(
+                alt_text='這是一個按鈕選單',
+                template=ButtonsTemplate(
+                    thumbnail_image_url='http://www.kaho.tw/images/pic1.jpg',
+                    title='高雄市立美術館',
+                    text='請選擇動作',
+                    actions=[
+                        URIAction(
+                            label='展覽資訊',
+                            uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
+                        ),
+                        URIAction(
+                            label='兒童美術館',
+                             uri='https://www.kmfa.gov.tw/Visit/navigation/navigation02.htm'
+                        ),
+                        URIAction(
+                            label='美術館VR環景',
+                            uri='https://roundme.com/tour/11129/view/27357/'
+                        )
+                    ]
                 )
-            #spotify音樂推薦
-            elif userSend in ['spotify','音樂','music']:
-                columnReply,textReply = scrapSpotify()
-                message = TemplateSendMessage(
-                    alt_text=textReply,
-                    template=ImageCarouselTemplate(
-                        columns=columnReply
-                    )
+            )
+        #spotify音樂推薦
+        elif userSend in ['spotify','音樂','music']:
+            columnReply,textReply = scrapSpotify()
+            message = TemplateSendMessage(
+                alt_text=textReply,
+                template=ImageCarouselTemplate(
+                    columns=columnReply
                 )
-            else:
-                message = TextSendMessage(text=userSend) #應聲蟲
-        line_bot_api.reply_message(event.reply_token, message)
+            )
+        else:
+            message = TextSendMessage(text=userSend) #應聲蟲
+    line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_message(event):
@@ -170,7 +170,7 @@ def handle_message(event):
         weatherResult = OWMLonLatsearch(userLon,userLat) #天氣查詢
         AQIResult = AQImonitor(userLon,userLat) #空氣品質
         gammaResult = gammamonitor(userLon,userLat) #輻射值
-        userStatusSheet.update_cell(userRow,2,'已註冊')
+        userStatusSheet.update_cell(userRow ,2 ,'已註冊')
         message = TextSendMessage(text='💨天氣狀況：\n{}\n📣空氣品質：{}\n\n💥輻射值：\n{}'.format(weatherResult,AQIResult,gammaResult))
         #message = TextSendMessage(text='地址：{}\n經度：{}\n緯度：{}'.format(userAddress,userLat,userLon))
     else:
