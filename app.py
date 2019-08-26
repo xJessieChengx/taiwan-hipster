@@ -107,10 +107,8 @@ def handle_message(event):
         #幣值查詢
         elif userSend == '匯率':
             message = TextSendMessage(text='請輸入正確的英文幣值名稱:')
-            Flag = True
-        elif Flag == True and userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
+        elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
             message = TextSendMessage(text=currencySearch(userSend))
-            Flag = False
 
         #高雄藝文特區
         elif userSend == '藝文特區':
@@ -161,6 +159,7 @@ def handle_message(event):
                     ]
                 )
             )
+
         #spotify音樂推薦
         elif userSend in ['spotify','音樂','music']:
             columnReply,textReply = scrapSpotify()
