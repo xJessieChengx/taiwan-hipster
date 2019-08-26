@@ -136,24 +136,12 @@ def handle_message(event):
                             text='高雄市電影館'
                         ),
                         MessageAction(
-                            label='大東文化藝術中心',
-                            text='大東文化藝術中心'
-                        ),
-                        MessageAction(
                             label='高雄市立圖書館總館',
                             text='高雄市立圖書館總館'
                         ),
                         MessageAction(
-                            label='國立科學工藝博物館',
-                            text='國立科學工藝博物館'
-                        ),
-                        MessageAction(
                             label='衛武營國家藝術文化中心',
                             text='衛武營國家藝術文化中心'
-                        ),
-                        MessageAction(
-                            label='國立中正文化中心(國家兩廳院)',
-                            text='國立中正文化中心(國家兩廳院)'
                         )
                     ]
                 )
