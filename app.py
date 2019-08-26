@@ -125,13 +125,13 @@ def handle_message(event):
                             label='高雄市立美術館',
                             text='高雄市立美術館'
                         ),
-                        URIAction(
+                        MessageAction(
                             label='高雄駁二藝術特區',
-                            uri='https://pier-2.khcc.gov.tw/home02.aspx?'
+                            text='高雄駁二藝術特區'
                         ),
-                        URIAction(
+                        MessageAction(
                             label='衛武營國家藝術文化中心',
-                            uri='https://www.npac-weiwuying.org/programs'
+                            text='衛武營國家藝術文化中心'
                         )
                     ]
                 )
