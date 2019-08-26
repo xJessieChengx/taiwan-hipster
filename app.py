@@ -119,11 +119,12 @@ def handle_message(event):
                 template=ButtonsTemplate(
                     thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
                     title='藝文特區',
-                    text='請選擇動作',
+                    text='請選擇地點',
                     actions=[
                         URIAction(
                             label='高雄市立美術館',
-                            uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
+                            text='高雄市立美術館'
+                            #uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
                         ),
                         URIAction(
                             label='高雄駁二藝術特區',
@@ -138,7 +139,7 @@ def handle_message(event):
             ) 
     
         #高雄市立美術館
-        elif userSend == '高美館':
+        elif userSend == '高雄市立美術館':
             message = TemplateSendMessage(
                 alt_text='這是一個按鈕選單',
                 template=ButtonsTemplate(
