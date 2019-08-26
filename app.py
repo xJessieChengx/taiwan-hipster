@@ -106,7 +106,7 @@ def handle_message(event):
 
         #幣值查詢
         elif userSend == '匯率':
-            message = TextSendMessage(text='請輸入正確的英文幣值名稱:')
+            message = TextSendMessage(text='請輸入正確的英文幣值名稱：')
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
             message = TextSendMessage(text=currencySearch(userSend))
         
@@ -130,10 +130,6 @@ def handle_message(event):
                         MessageAction(
                             label='高雄文化中心',
                             text='高雄文化中心'
-                        ),
-                        MessageAction(
-                            label='高雄市電影館',
-                            text='高雄市電影館'
                         ),
                         MessageAction(
                             label='高雄市立圖書館總館',
