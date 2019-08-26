@@ -87,11 +87,11 @@ def handle_message(event):
         #天氣查詢
         elif userSend == '天氣':
             userStatusSheet.update_cell(userRow, 2, '天氣查詢')
-			message = TextSendMessage(text='請傳送你的座標')
+            message = TextSendMessage(text='請傳送你的座標')
 
         #幣值查詢
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
-			message = TextSendMessage(text=currencySearch(userSend))
+            message = TextSendMessage(text=currencySearch(userSend))
 
 
         #高雄展覽快訊
