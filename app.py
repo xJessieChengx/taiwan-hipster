@@ -136,10 +136,6 @@ def handle_message(event):
                             text='高雄市電影館'
                         ),
                         MessageAction(
-                            label='高雄市皮影戲館',
-                            text='高雄市皮影戲館'
-                        ),
-                        MessageAction(
                             label='大東文化藝術中心',
                             text='大東文化藝術中心'
                         ),
@@ -150,18 +146,6 @@ def handle_message(event):
                         MessageAction(
                             label='國立科學工藝博物館',
                             text='國立科學工藝博物館'
-                        ),
-                        MessageAction(
-                            label='高雄市立歷史博物館',
-                            text='高雄市立歷史博物館'
-                        ),
-                        MessageAction(
-                            label='哈瑪星鐵道文化園區',
-                            text='哈瑪星鐵道文化園區'
-                        ),
-                        MessageAction(
-                            label='旗山車站糖鐵故事館',
-                            text='旗山車站糖鐵故事館'
                         ),
                         MessageAction(
                             label='衛武營國家藝術文化中心',
