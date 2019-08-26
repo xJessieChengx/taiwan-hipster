@@ -140,7 +140,7 @@ def handle_message(event):
             message = TemplateSendMessage(
                 alt_text='這是一個按鈕選單',
                 template=ButtonsTemplate(
-                    thumbnail_image_url='http://www.kaho.tw/images/pic1.jpg',
+                    thumbnail_image_url='https://www.kmfa.gov.tw/uploads/07-1810X768.jpg?5791651',
                     title='高雄市立美術館',
                     text='請選擇動作',
                     actions=[
@@ -150,7 +150,7 @@ def handle_message(event):
                         ),
                         URIAction(
                             label='兒童美術館',
-                             uri='https://www.kmfa.gov.tw/Visit/navigation/navigation02.htm'
+                            uri='https://www.kmfa.gov.tw/Visit/navigation/navigation02.htm'
                         ),
                         URIAction(
                             label='美術館VR環景',
