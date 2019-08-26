@@ -86,7 +86,7 @@ def handle_message(event):
 
         #天氣查詢
         elif userSend == '天氣':
-			userStatusSheet.update_cell(userRow, 2, '天氣查詢')
+            userStatusSheet.update_cell(userRow, 2, '天氣查詢')
 			message = TextSendMessage(text='請傳送你的座標')
 
         #幣值查詢
