@@ -82,7 +82,7 @@ def handle_message(event):
     elif status == '已註冊':
         if userSend == '你好':
             userName = userInfoSheet.cell(cell.row,2).value
-            message = TextSendMessage(text='Hello, ' + userName)
+            message = TextSendMessage(text='Hello, ' + userName + '已註冊成功!')
 
         #天氣查詢
         elif userSend == '天氣':
