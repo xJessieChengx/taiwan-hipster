@@ -87,7 +87,22 @@ def handle_message(event):
         #天氣查詢
         elif userSend == '天氣':
             userStatusSheet.update_cell(userRow, 2, '天氣查詢')
-            message = TextSendMessage(text='請傳送你的座標')
+            message = TemplateSendMessage(
+				alt_text='請點選位置資訊來傳送',
+				template=ConfirmTemplate(
+					text='是否傳送位置資訊？',
+					actions=[
+						URIAction(
+							label='傳送',
+							uri='line://nv/location'
+						),
+						PostbackAction(
+							label='取消',
+							data='取消查詢'
+						)
+					]
+				)
+        	)
 
         #幣值查詢
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
@@ -161,7 +176,8 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_message(event):
-	userID = event.source.user_id
+    userSend = event.message.text
+    userID = event.source.user_id
 	try:
 		cell = userStatusSheet.find(userID)
 		userRow = cell.row
@@ -195,6 +211,27 @@ def handle_message(event):
     message = TextSendMessage(text='嗚嗚~我看不懂貼圖')
     line_bot_api.reply_message(event.reply_token, message)
 
+#隱藏資訊
+@handler.add(PostbackEvent)
+def handle_message(event):
+	send = event.postback.data
+    userID = event.source.user_id
+	try:
+		cell = userStatusSheet.find(userID)
+		userRow = cell.row
+		userCol = cell.col
+		status = userStatusSheet.cell(cell.row,2).value
+	except:
+		userStatusSheet.append_row([userID])
+		cell = userStatusSheet.find(userID)
+		userRow = cell.row
+		userCol = cell.col
+		status = ''
+	if send == '取消查詢':
+		reply = '已經取消查詢'
+		userStatusSheet.update_cell(userRow, 2, '已註冊')
+		message = TextSendMessage(text=reply)
+	line_bot_api.reply_message(event.reply_token, message)
 
 import os
 if __name__ == "__main__":
