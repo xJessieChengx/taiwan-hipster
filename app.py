@@ -111,38 +111,87 @@ def handle_message(event):
             message = TextSendMessage(text=currencySearch(userSend))
         
         #高雄藝文特區
+        # elif userSend == '藝文特區':
+        #     message = TemplateSendMessage(
+        #         alt_text='這是一個按鈕選單',
+        #         template=ButtonsTemplate(
+        #             thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
+        #             title='藝文特區',
+        #             text='請選擇地點',
+        #             actions=[
+        #                 MessageAction(
+        #                     label='高雄市立美術館',
+        #                     text='高雄市立美術館'
+        #                 ),
+        #                 MessageAction(
+        #                     label='駁二藝術特區',
+        #                     text='駁二藝術特區'
+        #                 ),
+        #                 MessageAction(
+        #                     label='高雄文化中心',
+        #                     text='高雄文化中心'
+        #                 ),
+        #                 MessageAction(
+        #                     label='高雄市立圖書館總館',
+        #                     text='高雄市立圖書館總館'
+        #                 ),
+        #                 MessageAction(
+        #                     label='衛武營國家藝術文化中心',
+        #                     text='衛武營國家藝術文化中心'
+        #                 )
+        #             ]
+        #         )
+        #     ) 
+           
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
-                alt_text='這是一個按鈕選單',
-                template=ButtonsTemplate(
-                    thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
-                    title='藝文特區',
-                    text='請選擇地點',
-                    actions=[
-                        MessageAction(
-                            label='高雄市立美術館',
-                            text='高雄市立美術館'
+                alt_text='藝文特區',
+                template=ImageCarouselTemplate(
+                    columns=[
+                        ImageCarouselColumn(
+                            image_url='https://yt3.ggpht.com/a/AGF-l7_I5cC4BCgzsjC-KWUtpS67zX9OnaQ6OIv7Sw=s900-c-k-c0xffffffff-no-rj-mo',
+                            action=PostbackTemplateAction(
+                                label='高雄市立美術館',
+                                text='高雄市立美術館',
+                                data='action=buy&itemid=1'
+                            )
                         ),
-                        MessageAction(
-                            label='駁二藝術特區',
-                            text='駁二藝術特區'
+                        ImageCarouselColumn(
+                            image_url='https://t.kfs.io/upload_images/75049/logo_promote.jpg',
+                            action=PostbackTemplateAction(
+                                label='駁二藝術特區',
+                                text='駁二藝術特區',
+                                data='action=buy&itemid=2'
+                            )
                         ),
-                        MessageAction(
-                            label='高雄文化中心',
-                            text='高雄文化中心'
+                        ImageCarouselColumn(
+                            image_url='https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_9285_1.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄文化中心',
+                                text='高雄文化中心',
+                                data='action=buy&itemid=2'
+                            )
                         ),
-                        MessageAction(
-                            label='高雄市立圖書館總館',
-                            text='高雄市立圖書館總館'
+                        ImageCarouselColumn(
+                            image_url='https://pic.pimg.tw/ksdelicacy/1415936608-3870356857.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄市立圖書館總館',
+                                text='高雄市立圖書館總館',
+                                data='action=buy&itemid=2'
+                            )
                         ),
-                        MessageAction(
-                            label='衛武營國家藝術文化中心',
-                            text='衛武營國家藝術文化中心'
+                        ImageCarouselColumn(
+                            image_url='https://www.npac-weiwuying.org/assets/images/index/default-cover.jpg',
+                            action=PostbackTemplateAction(
+                                label='衛武營國家藝術文化中心',
+                                text='衛武營國家藝術文化中心',
+                                data='action=buy&itemid=2'
+                            )
                         )
                     ]
                 )
-            ) 
-        
+            )
+                
         #高雄市立美術館
         elif userSend in ['高雄市立美術館','高美館','kaohsiung museum of fine arts','KAOHSIUNG MUSEUM OF FINE ARTS']:
             message = TemplateSendMessage(
