@@ -106,11 +106,11 @@ def handle_message(event):
 
         #幣值查詢
         elif userSend == '匯率':
-            message = TextSendMessage(text='請輸入幣值英文名稱:')
-            if userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
-                message = TextSendMessage(text=currencySearch(userSend))
-            else:
-                message = TextSendMessage(text='請輸入正確的幣值英文名稱:')
+            message = TextSendMessage(text='請輸入正確的英文幣值名稱:')
+            Flag = True
+        elif Flag == True and userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
+            message = TextSendMessage(text=currencySearch(userSend))
+            Flag = False
 
         #高雄藝文特區
         elif userSend == '藝文特區':
@@ -124,7 +124,6 @@ def handle_message(event):
                         MessageAction(
                             label='高雄市立美術館',
                             text='高雄市立美術館'
-                            #uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
                         ),
                         URIAction(
                             label='高雄駁二藝術特區',
