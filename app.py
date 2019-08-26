@@ -95,17 +95,23 @@ def handle_message(event):
 
 
         #高雄展覽快訊
-        elif userSend == '展覽快訊':
+        #elif userSend == '展覽快訊':
             
         #高雄藝文特區
         elif userSend == '藝文特區':
-
-
-
-
-
-
-
+            message = TemplateSendMessage(
+                    alt_text='這是一個按鈕選單',
+                    template=ButtonsTemplate(
+                        thumbnail_image_url='http://www.kaho.tw/images/pic1.jpg',
+                        title='高雄市立美術館',
+                        text='請選擇動作',
+                        actions=[
+                            URIAction(
+                                label='展覽資訊',
+                                uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
+                            )
+            
+            #高美館
             elif userSend == '高美館':
                 message = TemplateSendMessage(
                     alt_text='這是一個按鈕選單',
@@ -155,7 +161,7 @@ def handle_message(event):
         cell = userStatusSheet.find(userID)
         userRow = cell.row
         userCol = cell.col
-        status = ''
+        status = '' 
     if status == '天氣查詢':
         userAddress = event.message.address
         userLat = event.message.latitude
@@ -178,9 +184,6 @@ def handle_message(event):
     print('執行StickerMessage')
     message = TextSendMessage(text='嗚嗚~我看不懂貼圖')
     line_bot_api.reply_message(event.reply_token, message)
-
-
-#展覽資訊回覆
 
 
 import os
