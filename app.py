@@ -144,7 +144,7 @@ def handle_message(event):
             ) 
         
         #高雄市立美術館
-        elif userSend == '高雄市立美術館':
+        elif userSend in ['高雄市立美術館','高美館','kaohsiung museum of fine arts','KAOHSIUNG MUSEUM OF FINE ARTS']:
             message = TemplateSendMessage(
                 alt_text='這是一個按鈕選單',
                 template=ButtonsTemplate(
