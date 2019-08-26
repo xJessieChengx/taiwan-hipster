@@ -100,18 +100,29 @@ def handle_message(event):
         #高雄藝文特區
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
-                    alt_text='這是一個按鈕選單',
-                    template=ButtonsTemplate(
-                        thumbnail_image_url='http://www.kaho.tw/images/pic1.jpg',
-                        title='高雄市立美術館',
-                        text='請選擇動作',
-                        actions=[
-                            URIAction(
-                                label='展覽資訊',
-                                uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
-                            )
-            
-        #高美館
+                alt_text='這是一個按鈕選單',
+                template=ButtonsTemplate(
+                    thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
+                    title='藝文特區',
+                    text='請選擇動作',
+                    actions=[
+                        URIAction(
+                            label='高雄市立美術館',
+                            uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
+                        ),
+                        URIAction(
+                            label='高雄駁二藝術特區',
+                            uri='https://pier-2.khcc.gov.tw/home02.aspx?'
+                        ),
+                        URIAction(
+                            label='衛武營國家藝術文化中心',
+                            uri='https://www.npac-weiwuying.org/programs'
+                        )
+                    ]
+                )
+            ) 
+    
+        #高雄市立美術館
         elif userSend == '高美館':
             message = TemplateSendMessage(
                 alt_text='這是一個按鈕選單',
