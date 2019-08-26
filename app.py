@@ -88,7 +88,7 @@ def handle_message(event):
         elif userSend == '天氣':
             userStatusSheet.update_cell(userRow, 2, '天氣查詢')
             #message = TextSendMessage(text='請傳送你的座標')
-                message = TemplateSendMessage(
+            message = TemplateSendMessage(
                 actions=[
                     URIAction(
                         label='傳送我的地點',
