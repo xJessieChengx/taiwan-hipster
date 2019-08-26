@@ -86,12 +86,12 @@ def handle_message(event):
 
         #天氣查詢
         elif userSend == '天氣':
-                userStatusSheet.update_cell(userRow, 2, '天氣查詢')
-                message = TextSendMessage(text='請傳送你的座標')
+			userStatusSheet.update_cell(userRow, 2, '天氣查詢')
+			message = TextSendMessage(text='請傳送你的座標')
 
         #幣值查詢
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
-                message = TextSendMessage(text=currencySearch(userSend))
+			message = TextSendMessage(text=currencySearch(userSend))
 
 
         #高雄展覽快訊
@@ -161,32 +161,31 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_message(event):
-    userID = event.source.user_id
-    try:
-        cell = userStatusSheet.find(userID)
-        userRow = cell.row
-        userCol = cell.col
-        status = userStatusSheet.cell(cell.row,2).valuee
-    except:
-        userStatusSheet.append_row([userID])
-        cell = userStatusSheet.find(userID)
-        userRow = cell.row
-        userCol = cell.col
-        status = '' 
-    if status == '天氣查詢':
-        userAddress = event.message.address
-        userLat = event.message.latitude
-        userLon = event.message.longitude
+	userID = event.source.user_id
+	try:
+		cell = userStatusSheet.find(userID)
+		userRow = cell.row
+		userCol = cell.col
+		status = userStatusSheet.cell(cell.row,2).value
+	except:
+		userStatusSheet.append_row([userID])
+		cell = userStatusSheet.find(userID)
+		userRow = cell.row
+		userCol = cell.col
+		status = ''
+	if status == '天氣查詢':
+		userAddress = event.message.address
+		userLat = event.message.latitude
+		userLon = event.message.longitude
 
-        weatherResult = OWMLonLatsearch(userLon,userLat) #天氣查詢
-        AQIResult = AQImonitor(userLon,userLat) #空氣品質
-        gammaResult = gammamonitor(userLon,userLat) #輻射值
-        userStatusSheet.update_cell(userRow ,2 ,'已註冊')
-        message = TextSendMessage(text='💨天氣狀況：\n{}\n📣空氣品質：{}\n\n💥輻射值：\n{}'.format(weatherResult,AQIResult,gammaResult))
-        #message = TextSendMessage(text='地址：{}\n經度：{}\n緯度：{}'.format(userAddress,userLat,userLon))
-    else:
-        message = TextSendMessage(text='傳地址幹嘛?')
-    line_bot_api.reply_message(event.reply_token, message)
+		weatherResult = OWMLonLatsearch(userLon,userLat)
+		AQIResult = AQImonitor(userLon,userLat)
+		gammaResult = gammamonitor(userLon,userLat)
+		userStatusSheet.update_cell(userRow, 2, '已註冊')
+		message = TextSendMessage(text='🌤天氣狀況：\n{}\n🚩空氣品質：\n{}\n\n🌌輻射值：\n{}'.format(weatherResult,AQIResult,gammaResult))
+	else:
+		message = TextSendMessage(text='傳地址幹嘛?')
+	line_bot_api.reply_message(event.reply_token, message)
 
 
 #回覆貼圖訊息
