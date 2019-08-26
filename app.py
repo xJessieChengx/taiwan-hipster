@@ -110,30 +110,30 @@ def handle_message(event):
         elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
             message = TextSendMessage(text=currencySearch(userSend))
         
-        # #高雄藝文特區
-        # elif userSend == '藝文特區':
-        #     message = TemplateSendMessage(
-        #         alt_text='這是一個按鈕選單',
-        #         template=ButtonsTemplate(
-        #             thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
-        #             title='藝文特區',
-        #             text='請選擇地點',
-        #             actions=[
-        #                 MessageAction(
-        #                     label='高雄市立美術館',
-        #                     text='高雄市立美術館'
-        #                 ),
-        #                 MessageAction(
-        #                     label='高雄駁二藝術特區',
-        #                     text='高雄駁二藝術特區'
-        #                 ),
-        #                 MessageAction(
-        #                     label='衛武營國家藝術文化中心',
-        #                     text='衛武營國家藝術文化中心'
-        #                 )
-        #             ]
-        #         )
-        #     ) 
+        #高雄藝文特區
+        elif userSend == '藝文特區':
+            message = TemplateSendMessage(
+                alt_text='這是一個按鈕選單',
+                template=ButtonsTemplate(
+                    thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
+                    title='藝文特區',
+                    text='請選擇地點',
+                    actions=[
+                        MessageAction(
+                            label='高雄市立美術館',
+                            text='高雄市立美術館'
+                        ),
+                        MessageAction(
+                            label='高雄駁二藝術特區',
+                            text='高雄駁二藝術特區'
+                        ),
+                        MessageAction(
+                            label='衛武營國家藝術文化中心',
+                            text='衛武營國家藝術文化中心'
+                        )
+                    ]
+                )
+            ) 
         
         #高雄市立美術館
         elif userSend == '高雄市立美術館':
