@@ -105,13 +105,13 @@ def handle_message(event):
         	)
 
         #幣值查詢
-        elif userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
-            message = TextSendMessage(text=currencySearch(userSend))
+        elif userSend == '匯率':
+            message = TextSendMessage(text='請輸入幣值英文名稱:')
+            if userSend in ['CNY', 'THB', 'SEK', 'USD', 'IDR', 'AUD', 'NZD', 'PHP', 'MYR', 'GBP', 'ZAR', 'CHF', 'VND', 'EUR', 'KRW', 'SGD', 'JPY', 'CAD', 'HKD']:
+                message = TextSendMessage(text=currencySearch(userSend))
+            else:
+                message = TextSendMessage(text='請輸入正確的幣值英文名稱:')
 
-
-        #高雄展覽快訊
-        #elif userSend == '展覽快訊':
-            
         #高雄藝文特區
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
@@ -177,7 +177,6 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=LocationMessage)
 def handle_message(event):
-	userSend = event.message.text
 	userID = event.source.user_id
 	try:
 		cell = userStatusSheet.find(userID)
