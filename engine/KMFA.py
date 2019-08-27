@@ -58,7 +58,7 @@ def kaohsiungMuseumOfFineArts():
 						),
 						URITemplateAction(
 							label='博客來購票',
-							uri=TicketsBooks()
+							uri='TicketsBooks()'
 						)
 					]
 				)
