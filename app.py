@@ -9,6 +9,8 @@ from engine.AQI import AQImonitor #空氣品質
 from engine.gamma import gammamonitor #輻射值
 from engine.OWM import OWMLonLatsearch #天氣查詢
 from engine.SpotifyScrap import scrapSpotify #Spotify隨機音樂
+
+from engine.KMFA import kaohsiungMuseumOfFineArts
 #from engine.bookingSystem import booking
 #from engine.movie import getMoviePoster
 import gspread
@@ -142,7 +144,8 @@ def handle_message(event):
         #             ]
         #         )
         #     ) 
-           
+        Museum_Name = ''
+
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
                 alt_text='藝文特區',
@@ -234,6 +237,7 @@ def handle_message(event):
                 
         #高雄市立美術館
         elif userSend in ['高雄市立美術館','高美館','kaohsiung museum of fine arts','KAOHSIUNG MUSEUM OF FINE ARTS']:
+            Museum_Name = '高美館'
             message = TemplateSendMessage(
                 alt_text='這是一個按鈕選單',
                 template=ButtonsTemplate(
@@ -241,9 +245,9 @@ def handle_message(event):
                     title='高雄市立美術館',
                     text='請選擇動作',
                     actions=[
-                        URIAction(
+                        MessageAction(
                             label='展覽資訊',
-                            uri='https://www.kmfa.gov.tw/ExhibitionListC001100.aspx?'
+                            text='高雄市立美術館展覽資訊'
                         ),
                         URIAction(
                             label='兒童美術館',
@@ -260,6 +264,24 @@ def handle_message(event):
                     ]
                 )
             )
+        elif userSend == '高雄市立美術館展覽資訊':
+            data = kaohsiungMuseumOfFineArts()
+            message = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(columns=data)
+            )
+    
+
+
+
+
+
+
+
+
+
+
+
 
         #spotify音樂推薦
         elif userSend in ['spotify','音樂','music']:
