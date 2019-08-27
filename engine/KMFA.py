@@ -49,7 +49,8 @@ def kaohsiungMuseumOfFineArts():
 						),
 						URITemplateAction(
 							label='購票連結',
-							uri='https://www.google.com.tw/search?q={}%E8%B3%BC%E7%A5%A8'.format(Name)
+							uri='https://www.kmfa.gov.tw{}'.format(Link)
+							#uri='https://www.google.com.tw/search?q={}%E8%B3%BC%E7%A5%A8'.format(Name)
 						)
 					]
 				)
