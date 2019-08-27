@@ -11,6 +11,7 @@ from engine.OWM import OWMLonLatsearch #天氣查詢
 from engine.SpotifyScrap import scrapSpotify #Spotify隨機音樂
 
 from engine.KMFA import kaohsiungMuseumOfFineArts #高美館
+from engine.PIER2 import ThePier2ArtCenter #駁二特區
 #from engine.bookingSystem import booking
 #from engine.movie import getMoviePoster
 import gspread
@@ -113,38 +114,6 @@ def handle_message(event):
             message = TextSendMessage(text=currencySearch(userSend))
         
         #高雄藝文特區
-        # elif userSend == '藝文特區':
-        #     message = TemplateSendMessage(
-        #         alt_text='這是一個按鈕選單',
-        #         template=ButtonsTemplate(
-        #             thumbnail_image_url='https://www.khcc.gov.tw/PhotoData/PIC1080719.jpg',
-        #             title='藝文特區',
-        #             text='請選擇地點',
-        #             actions=[
-        #                 MessageAction(
-        #                     label='高雄市立美術館',
-        #                     text='高雄市立美術館'
-        #                 ),
-        #                 MessageAction(
-        #                     label='駁二藝術特區',
-        #                     text='駁二藝術特區'
-        #                 ),
-        #                 MessageAction(
-        #                     label='高雄文化中心',
-        #                     text='高雄文化中心'
-        #                 ),
-        #                 MessageAction(
-        #                     label='高雄市立圖書館總館',
-        #                     text='高雄市立圖書館總館'
-        #                 ),
-        #                 MessageAction(
-        #                     label='衛武營國家藝術文化中心',
-        #                     text='衛武營國家藝術文化中心'
-        #                 )
-        #             ]
-        #         )
-        #     ) 
-
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
                 alt_text='藝文特區',
@@ -234,7 +203,7 @@ def handle_message(event):
                 )
             )
         
-        #高雄市立美術館
+        ##高雄市立美術館
         elif userSend in ['高雄市立美術館','高美館','kaohsiung museum of fine arts','KAOHSIUNG MUSEUM OF FINE ARTS']:
             Museum_Name = '高美館'
             message = TemplateSendMessage(
@@ -263,14 +232,51 @@ def handle_message(event):
                     ]
                 )
             )
-		#高雄市立美術館 #展覽資訊
+		###高雄市立美術館 #展覽資訊
         elif userSend == '高雄市立美術館展覽資訊':
             data = kaohsiungMuseumOfFineArts()
             message = TemplateSendMessage(
                 alt_text='Carousel template',
                 template=CarouselTemplate(columns=data)
             )
-    
+
+        ##高雄駁二藝術特區
+        elif userSend in ['高雄駁二藝術特區','駁二藝術特區','駁二特區','駁二','The Pier2 Art Center','Pier2']:
+            Museum_Name = '駁二特區'
+            message = TemplateSendMessage(
+                alt_text='這是一個按鈕選單',
+                template=ButtonsTemplate(
+                    thumbnail_image_url='https://img.funtory.tw/2015/04/150415-kaohsiung-pier2/kaohsiung-pier2_1.jpg',
+                    title='駁二藝術特區',
+                    text='請選擇動作',
+                    actions=[
+                        MessageAction(
+                            label='展覽資訊',
+                            text='駁二藝術特區展覽資訊'
+                        ),
+                        URIAction(
+                            label='文創夥伴',
+                            uri='https://pier-2.khcc.gov.tw/home05.aspx?ID=$7022&IDK=2&EXEC=L'
+                        ),
+                        URIAction(
+                            label='園區地圖',
+                            uri='https://pier-2.khcc.gov.tw/home04.aspx?ID=24'
+                        ),
+                        URIAction(
+                            label='虛擬實景',
+                            uri='https://pier-2.khcc.gov.tw/home04.aspx?ID=$2002&IDK=2&EXEC=L'
+                        )
+                    ]
+                )
+            )
+        ###高雄駁二藝術特區 #展覽資訊
+        elif userSend == '駁二藝術特區展覽資訊':
+            data = ThePier2ArtCenter()
+            message = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(columns=data)
+            )
+
         #spotify音樂推薦
         elif userSend in ['spotify','音樂','music','Music','MUSIC']:
             columnReply,textReply = scrapSpotify()
