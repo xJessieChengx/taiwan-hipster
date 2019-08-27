@@ -197,7 +197,7 @@ def handle_message(event):
                             )
                         ),
                         ImageCarouselColumn(
-                            image_url='https://upload.wikimedia.org/wikipedia/commons/4/4d/%E5%A4%A7%E6%9D%B1%E6%96%87%E5%8C%96%E8%97%9D%E8%A1%93%E4%B8%AD%E5%BF%83_20121115.jpg',
+                            image_url='https://farm6.staticflickr.com/5607/15414573410_14be148561_o.jpg',
                             action=PostbackTemplateAction(
                                 label='大東文化藝術中心',
                                 text='大東文化藝術中心',
