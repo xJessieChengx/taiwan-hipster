@@ -36,39 +36,39 @@ def ThePier2ArtCenter():
 				newName += i
 		return newName
 
-	infos = []
-	#展覽資訊擷取
-	for exhibition in soup.select('.n_box'):
-		Name = exhibition.select('.pic img')[0]['alt']
-		Date = exhibition.select('.txt')[0].text
-		imgLink = exhibition.select('.pic img')[0]['src']
-		LinkTemp = exhibition['onclick'].split('=\'')[1]
-		Link = LinkTemp[:len(LinkTemp)-1]
+		infos = []
+		#展覽資訊擷取
+		for exhibition in soup.select('.n_box'):
+			Name = exhibition.select('.pic img')[0]['alt']
+			Date = exhibition.select('.txt')[0].text
+			imgLink = exhibition.select('.pic img')[0]['src']
+			LinkTemp = exhibition['onclick'].split('=\'')[1]
+			Link = LinkTemp[:len(LinkTemp)-1]
 
-		# 測試用
-		#infos.append([Name,Date,imgLink])
-		if len(infos) < 10:
-			infos.append(
-				CarouselColumn(
-					thumbnail_image_url=imgLink,
-					title=Name,
-					text=Date,
-					actions=[
-						URITemplateAction(
-							label='展覽資訊',
-							uri=Link
-						),
-						URITemplateAction(
-							label='購票連結',
-							uri=Link
-						)
-					]
+			# 測試用
+			#infos.append([Name,Date,imgLink])
+			if len(infos) < 10:
+				infos.append(
+					CarouselColumn(
+						thumbnail_image_url=imgLink,
+						title=Name,
+						text=Date,
+						actions=[
+							URITemplateAction(
+								label='展覽資訊',
+								uri=Link
+							),
+							URITemplateAction(
+								label='購票連結',
+								uri=Link
+							)
+						]
+					)
 				)
-			)
-		else:
-			break
+			else:
+				break
 
-	return infos
+		return infos
 
 		# print('展覽名稱：{}'.format(Date))
 		# print('展覽圖片：https://pier-2.khcc.gov.tw{}'.format(imgLink))
