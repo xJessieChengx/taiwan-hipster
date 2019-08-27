@@ -144,7 +144,6 @@ def handle_message(event):
         #             ]
         #         )
         #     ) 
-        Museum_Name = ''
 
         elif userSend == '藝文特區':
             message = TemplateSendMessage(
