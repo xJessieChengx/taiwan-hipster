@@ -11,7 +11,7 @@ from engine.OWM import OWMLonLatsearch #天氣查詢
 from engine.SpotifyScrap import scrapSpotify #Spotify隨機音樂
 
 from engine.KMFA import kaohsiungMuseumOfFineArts #高美館
-from engine.PIER2 import ThePier2ArtCenter #駁二特區
+#from engine.PIER2 import ThePier2ArtCenter #駁二特區
 #from engine.bookingSystem import booking
 #from engine.movie import getMoviePoster
 import gspread
@@ -256,8 +256,7 @@ def handle_message(event):
                         ),
                         URIAction(
                             label='文創夥伴',
-                            uri='https://pier-2.khcc.gov.tw/PhotoData/20190611.jpg'
-                            #uri='https://pier-2.khcc.gov.tw/home05.aspx?ID=$7022&IDK=2&EXEC=L'
+                            uri='https://pier-2.khcc.gov.tw/home05.aspx?ID=$7022&IDK=2&EXEC=L'
                         ),
                         URIAction(
                             label='園區地圖',
@@ -270,13 +269,13 @@ def handle_message(event):
                     ]
                 )
             )
-        ###高雄駁二藝術特區 #展覽資訊
-        elif userSend == '駁二藝術特區展覽資訊':
-            data = ThePier2ArtCenter()
-            message = TemplateSendMessage(
-                alt_text='Carousel template',
-                template=CarouselTemplate(columns=data)
-            )
+        # ###高雄駁二藝術特區 #展覽資訊
+        # elif userSend == '駁二藝術特區展覽資訊':
+        #     data = ThePier2ArtCenter()
+        #     message = TemplateSendMessage(
+        #         alt_text='Carousel template',
+        #         template=CarouselTemplate(columns=data)
+        #     )
 
         #spotify音樂推薦
         elif userSend in ['spotify','音樂','music','Music','MUSIC']:

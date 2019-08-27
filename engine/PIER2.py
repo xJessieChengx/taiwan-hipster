@@ -68,4 +68,5 @@ def ThePier2ArtCenter():
 		# print('展覽連結：https://pier-2.khcc.gov.tw/{}'.format(Link))
 		# print('------------------------')
 
-	#print('抓取完成')
+#print('抓取完成')
+#print(ThePier2ArtCenter())
