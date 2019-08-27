@@ -270,18 +270,6 @@ def handle_message(event):
                 template=CarouselTemplate(columns=data)
             )
     
-
-
-
-
-
-
-
-
-
-
-
-
         #spotify音樂推薦
         elif userSend in ['spotify','音樂','music']:
             columnReply,textReply = scrapSpotify()
