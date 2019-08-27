@@ -5,13 +5,13 @@ import os
 import time
 from linebot.models import *
 
-#整理檔案名稱(展覽名稱)，去除其他特殊符號
-def clearName(name):
-	newName = ''
-	for i in name:
-		if i.isalnum():
-			newName += i
-	return newName
+# #整理檔案名稱(展覽名稱)，去除其他特殊符號
+# def clearName(name):
+# 	newName = ''
+# 	for i in name:
+# 		if i.isalnum():
+# 			newName += i
+# 	return newName
 
 # #下載展覽圖片
 # def download(link, showname):
@@ -27,6 +27,14 @@ def ThePier2ArtCenter():
 	webContent = requests.get(url, headers=headers)
 	webContent.encoding = 'UTF-8'
 	soup = BeautifulSoup(webContent.content, 'html.parser')
+
+	#整理檔案名稱(展覽名稱)，去除其他特殊符號
+	def clearName(name):
+		newName = ''
+		for i in name:
+			if i.isalnum():
+				newName += i
+		return newName
 
 	infos = []
 	#展覽資訊擷取
