@@ -167,9 +167,41 @@ def handle_message(event):
                         ImageCarouselColumn(
                             image_url='https://www.taiwan.net.tw/att/1/big_scenic_spots/pic_9285_1.jpg',
                             action=PostbackTemplateAction(
-                                label='高雄文化中心',
-                                text='高雄文化中心',
-                                data='action=buy&itemid=2'
+                                label='高雄中正文化中心',
+                                text='高雄中正文化中心',
+                                data='action=buy&itemid=3'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://images.1111.com.tw/media/share/be/be176ff41da342bd9be476eaaeca1d57.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄岡山文化中心',
+                                text='高雄岡山文化中心',
+                                data='action=buy&itemid=4'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='http://www.khcc.gov.tw/PhotoData/PIC1010424_5.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄市電影館',
+                                text='高雄市電影館',
+                                data='action=buy&itemid=5'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://kaohsiungmusichall.khcc.gov.tw/PhotoData/03_1.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄市音樂館',
+                                text='高雄市音樂館',
+                                data='action=buy&itemid=6'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://upload.wikimedia.org/wikipedia/commons/4/4d/%E5%A4%A7%E6%9D%B1%E6%96%87%E5%8C%96%E8%97%9D%E8%A1%93%E4%B8%AD%E5%BF%83_20121115.jpg',
+                            action=PostbackTemplateAction(
+                                label='大東文化藝術中心',
+                                text='大東文化藝術中心',
+                                data='action=buy&itemid=7'
                             )
                         ),
                         ImageCarouselColumn(
@@ -177,7 +209,7 @@ def handle_message(event):
                             action=PostbackTemplateAction(
                                 label='高雄市立圖書館總館',
                                 text='高雄市立圖書館總館',
-                                data='action=buy&itemid=2'
+                                data='action=buy&itemid=8'
                             )
                         ),
                         ImageCarouselColumn(
@@ -185,7 +217,15 @@ def handle_message(event):
                             action=PostbackTemplateAction(
                                 label='衛武營國家藝術文化中心',
                                 text='衛武營國家藝術文化中心',
-                                data='action=buy&itemid=2'
+                                data='action=buy&itemid=9'
+                            )
+                        ),
+                        ImageCarouselColumn(
+                            image_url='https://museums.moc.gov.tw/Upload/MuseumDayActivityFrontCover/d093b7a9-72be-48ce-8238-3c08eea58639.jpg',
+                            action=PostbackTemplateAction(
+                                label='高雄科學工藝博物館',
+                                text='高雄科學工藝博物館',
+                                data='action=buy&itemid=10'
                             )
                         )
                     ]
