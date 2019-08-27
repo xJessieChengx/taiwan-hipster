@@ -181,7 +181,7 @@ def handle_message(event):
                             )
                         ),
                         ImageCarouselColumn(
-                            image_url='http://www.khcc.gov.tw/PhotoData/PIC1010424_5.jpg',
+                            image_url='https://cdn0.techbang.com/system/images/505989/original/762cbe52aeaf8868c25cf2e6ba95297f.jpg?1552021137',
                             action=PostbackTemplateAction(
                                 label='高雄市電影館',
                                 text='高雄市電影館',
