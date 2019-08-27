@@ -17,15 +17,6 @@ from linebot.models import *
 # if os.path.exists(folder_path) == False:  # 判断文件夹是否已经存在
 #     os.makedirs(folder_path)  # 创建文件夹
 
-def TicketsBooks(self):
-        driver = self.driver
-        driver.get("https://tickets.books.com.tw/index/")
-        driver.find_element_by_name("key").click()
-        driver.find_element_by_name("key").clear()
-        driver.find_element_by_name("key").send_keys(u"exhibition(Name)")
-        driver.find_element_by_xpath(u"(.//*[normalize-space(text()) and normalize-space(.)='節目搜尋'])[1]/following::button[1]").click()
-        driver.find_element_by_link_text(u"exhibition(Name)").click()
-
 #高雄美術館
 def kaohsiungMuseumOfFineArts():
 	url = 'https://www.kmfa.gov.tw/ExhibitionListC001100.aspx'
@@ -57,8 +48,8 @@ def kaohsiungMuseumOfFineArts():
 							uri='https://www.kmfa.gov.tw{}'.format(Link)
 						),
 						URITemplateAction(
-							label='博客來購票',
-							uri='TicketsBooks()'
+							label='購票連結',
+							uri='https://www.google.com.tw/search?q={}購票'.format(Name)
 						)
 					]
 				)
