@@ -35,7 +35,7 @@ def kaohsiungMuseumOfFineArts():
 			Link = exhibition.select('a')[0]['href']
 		
 		# 測試用
-		infos.append([Name,Date,ImgLink])
+		#infos.append([Name,Date,ImgLink])
 
 		CarouselColumn(
 			thumbnail_image_url='https://www.kmfa.gov.tw/{}'.format(ImgLink),
@@ -66,4 +66,4 @@ def kaohsiungMuseumOfFineArts():
 		# print('------------------------')
 
 #print('抓取完成')
-print(kaohsiungMuseumOfFineArts())
+#print(kaohsiungMuseumOfFineArts())
