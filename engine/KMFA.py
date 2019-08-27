@@ -35,20 +35,20 @@ def kaohsiungMuseumOfFineArts():
 			Link = exhibition.select('a')[0]['href']
 		
 		# 測試用
-		# infos.append([Name,Date,ImgLink])
+		infos.append([Name,Date,ImgLink])
 
 		CarouselColumn(
-			thumbnail_image_url=ImgLink,
+			thumbnail_image_url='https://www.kmfa.gov.tw/{}'.format(ImgLink),
 			title=Name,
 			text=Date,
 			actions=[
 				URITemplateAction(
 					label='展覽資訊',
-					uri=Link
+					uri='https://www.kmfa.gov.tw{}'.format(Link)
 				),
 				URITemplateAction(
 					label='展覽資訊',
-					uri=Link
+					uri='https://www.kmfa.gov.tw{}'.format(Link)
 				)
 			]
 		)
@@ -66,3 +66,4 @@ def kaohsiungMuseumOfFineArts():
 		# print('------------------------')
 
 #print('抓取完成')
+print(kaohsiungMuseumOfFineArts())
