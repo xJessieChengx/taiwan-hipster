@@ -36,24 +36,24 @@ def kaohsiungMuseumOfFineArts():
 		
 		# 測試用
 		#infos.append([Name,Date,ImgLink])
-
-		CarouselColumn(
-			thumbnail_image_url='https://www.kmfa.gov.tw/{}'.format(ImgLink),
-			title=Name,
-			text=Date,
-			actions=[
-				URITemplateAction(
-					label='展覽資訊',
-					uri='https://www.kmfa.gov.tw{}'.format(Link)
-				),
-				URITemplateAction(
-					label='展覽資訊',
-					uri='https://www.kmfa.gov.tw{}'.format(Link)
+		if len(infos) < 10:
+			infos.append(
+				CarouselColumn(
+					thumbnail_image_url='https://www.kmfa.gov.tw/{}'.format(ImgLink),
+					title=Name,
+					text=Date,
+					actions=[
+						URITemplateAction(
+							label='展覽資訊',
+							uri='https://www.kmfa.gov.tw{}'.format(Link)
+						),
+						URITemplateAction(
+							label='展覽資訊',
+							uri='https://www.kmfa.gov.tw{}'.format(Link)
+						)
+					]
 				)
-			]
-		)
-		if len(infos)<10:
-			infos.append(CarouselColumn) 
+			)
 		else:
 			break      
 
