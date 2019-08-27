@@ -256,7 +256,8 @@ def handle_message(event):
                         ),
                         URIAction(
                             label='文創夥伴',
-                            uri='https://pier-2.khcc.gov.tw/home05.aspx?ID=$7022&IDK=2&EXEC=L'
+                            uri='https://pier-2.khcc.gov.tw/PhotoData/20190611.jpg'
+                            #uri='https://pier-2.khcc.gov.tw/home05.aspx?ID=$7022&IDK=2&EXEC=L'
                         ),
                         URIAction(
                             label='園區地圖',
