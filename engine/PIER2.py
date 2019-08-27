@@ -48,11 +48,11 @@ def ThePier2ArtCenter():
 					actions=[
 						URITemplateAction(
 							label='展覽資訊',
-							uri='Link
+							uri=Link
 						),
 						URITemplateAction(
 							label='購票連結',
-							uri='Link
+							uri=Link
 						)
 					]
 				)
