@@ -233,7 +233,7 @@ def handle_message(event):
                     ]
                 )
             )
-                
+        
         #高雄市立美術館
         elif userSend in ['高雄市立美術館','高美館','kaohsiung museum of fine arts','KAOHSIUNG MUSEUM OF FINE ARTS']:
             Museum_Name = '高美館'
@@ -263,6 +263,7 @@ def handle_message(event):
                     ]
                 )
             )
+		#高雄市立美術館 #展覽資訊
         elif userSend == '高雄市立美術館展覽資訊':
             data = kaohsiungMuseumOfFineArts()
             message = TemplateSendMessage(
